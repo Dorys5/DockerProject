@@ -9,18 +9,18 @@ services:
       - mysql
 
   mysql: 
-    image: mariadb
+    image: mysql
     environment:
-      MYSQL_DATABASE: 
+      MYSQL_DATABASE: laravel
       MYSQL_USER: root
-      MYSQL_PASSWORD: ""
+      MYSQL_PASSWORD: 
     ports:
        - "127.0.0.1:3306:3306"
 
   vue-project:
      build: ./vue-project/
      ports:  
-      - "127.0.0.1:81:81" 
+      - 5173:5173 
      volumes:
       - .:/vue-project/
      depends_on:
