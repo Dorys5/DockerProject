@@ -1,0 +1,35 @@
+services:
+  laravel:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile
+    volumes:
+      - ./laravel:/var/www
+    networks:
+      - app-network
+
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
+
