@@ -2,7 +2,7 @@ services:
   laravel-app:
     build: ./laravel-app/
     ports:
-      - "8080:8080" 
+      - "8181:8181" 
     volumes:
      - .:/laravel-app/
     depends_on:
